@@ -13,6 +13,8 @@ export type SignupFormData = {
 };
 
 const SignUp = () => {
+  const notify = () =>
+    toast.success("Sign-up successfull", {className: "toast-message"});
   const navigate = useNavigate();
 
   const {
@@ -26,7 +28,7 @@ const SignUp = () => {
     onSuccess: () => {
       console.log("registartion successful!");
       navigate("/sign-in");
-      toast.success("Sign-up sucessfull");
+      notify();
     },
     onError: (error: Error) => {
       console.log(error.message);
