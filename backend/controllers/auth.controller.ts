@@ -87,6 +87,13 @@ export const signin = async (
   }
 };
 
+export const signout = (req: Request, res: Response) => {
+  res
+    .clearCookie("auth_token")
+    .status(200)
+    .json("user logged out successfully!");
+};
+
 export const validateToken = (req: Request, res: Response) => {
   res.status(201).send({userId: req.userId});
 };
