@@ -8,3 +8,10 @@
   font-size: 20px;
   padding: 1rem 0.5rem;
 }
+
+.toast-message-error {
+  background-color: red;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 1rem 0.5rem;
+}

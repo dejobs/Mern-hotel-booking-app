@@ -1,6 +1,9 @@
 import {Link} from "react-router-dom";
+import {useAppContext} from "../contexts/AppContext";
 
 const Header = () => {
+  const {isLoggedIn} = useAppContext();
+  console.log(isLoggedIn);
   return (
     <header className="bg-teal-800 py-6 shadow-md ">
       <div className="container mx-auto flex justify-between  items-center">
@@ -8,12 +11,30 @@ const Header = () => {
           <Link to="/">TravelMaker.com</Link>
         </span>
         <span className="flex items-center space-x-2 ">
-          <Link
-            to="/sign-in"
-            className="text-teal-700 border rounded-sm font-medium sm:font-semibold px-1 sm:px-3 bg-white hover:bg-gray-200 hover:text-teal-900 "
-          >
-            Sign in
-          </Link>
+          {isLoggedIn ? (
+            <>
+              <Link
+                to="/my-bookings"
+                className="text-teal-700 border rounded-sm font-medium sm:font-semibold px-1 sm:px-3 bg-white hover:bg-gray-200 hover:text-teal-900 "
+              >
+                My Bookings
+              </Link>
+              <Link
+                to="/my-hotels"
+                className="text-teal-700 border rounded-sm font-medium sm:font-semibold px-1 sm:px-3 bg-white hover:bg-gray-200 hover:text-teal-900 "
+              >
+                My Hotels
+              </Link>
+              <button>Sign out</button>
+            </>
+          ) : (
+            <Link
+              to="/sign-in"
+              className="text-teal-700 border rounded-sm font-medium sm:font-semibold px-1 sm:px-3 bg-white hover:bg-gray-200 hover:text-teal-900 "
+            >
+              Sign in
+            </Link>
+          )}
         </span>
       </div>
       <div className="container mx-auto text-white flex flex-col gap-2 mt-5 mb-10">

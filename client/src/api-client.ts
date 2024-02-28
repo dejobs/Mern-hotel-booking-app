@@ -4,6 +4,7 @@ export const signup = async (formData: SignupFormData) => {
   try {
     const res = await fetch("/api/auth/signup", {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -14,5 +15,18 @@ export const signup = async (formData: SignupFormData) => {
       throw new Error(data.message);
       return;
     }
-  } catch (err) {}
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const validateToken = async () => {
+  const res = await fetch("/api/auth/validate-token", {
+    credentials: "include",
+  });
+  const data = await res.json();
+  if (data.success === false) {
+    throw new Error("Token invalid");
+  }
+  return data;
 };

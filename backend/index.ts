@@ -9,14 +9,19 @@ dotenv.config();
 mongoose
   .connect(process.env.MONGO as string)
   .then(() => console.log("connected live to the mongodb server!!!"))
-  .catch((err) => console.log("err"));
+  .catch((err) => console.log(err.message));
 
 const app = express();
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({extended: true}));
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  })
+);
 
 app.listen(6500, () => {
   console.log("app running at port 6500!");

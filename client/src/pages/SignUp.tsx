@@ -13,8 +13,6 @@ export type SignupFormData = {
 };
 
 const SignUp = () => {
-  const notify = () =>
-    toast.success("Sign-up successfull", {className: "toast-message"});
   const navigate = useNavigate();
 
   const {
@@ -26,12 +24,12 @@ const SignUp = () => {
 
   const mutation = useMutation(apiClient.signup, {
     onSuccess: () => {
-      console.log("registartion successful!");
-      navigate("/sign-in");
-      notify();
+      navigate("/");
+      toast.success("Sign-up successfull", {className: "toast-message"});
     },
     onError: (error: Error) => {
       console.log(error.message);
+      toast.error(error.message, {className: "toast-message-error"});
     },
   });
 

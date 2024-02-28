@@ -1,7 +1,8 @@
 import express from "express";
-import {signup} from "../controllers/auth.controller";
+import {signup, validateToken} from "../controllers/auth.controller";
 import {check} from "express-validator";
 import {signin} from "../controllers/auth.controller";
+import verifyToken from "../utils/verifyUser";
 
 const router = express.Router();
 
@@ -25,5 +26,6 @@ const validatorCheck2 = [
 
 router.post("/signup", validatorCheck, signup);
 router.post("/signin", validatorCheck2, signin);
+router.get("/validate-token", verifyToken, validateToken);
 
 export default router;

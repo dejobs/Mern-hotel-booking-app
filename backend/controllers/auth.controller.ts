@@ -19,6 +19,10 @@ export const signup = async (
   }
   try {
     const {email, password, firstName, lastName} = req.body;
+
+    const user = await User.findOne({email});
+    if (user) return next(errorHandler(400, "User already exist!"));
+
     const hashedPassword = bcryptjs.hashSync(password, 10);
     const newUser = new User({
       email,
@@ -81,4 +85,8 @@ export const signin = async (
   } catch (err) {
     next(err);
   }
+};
+
+export const validateToken = (req: Request, res: Response) => {
+  res.status(201).send({userId: req.userId});
 };
