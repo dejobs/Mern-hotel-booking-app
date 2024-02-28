@@ -39,7 +39,7 @@ const SignUp = () => {
 
   return (
     <div className=" container mx-auto flex flex-col gap-5 py-6">
-      <h1 className="text-3xl font-semibold"> Create an Account</h1>
+      <h1 className="text-3xl font-bold"> Create an Account</h1>
       <form onSubmit={onSubmit} className="flex flex-col gap-5">
         <div className="flex flex-col md:flex-row gap-5">
           <label className="flex flex-col text-gray-700 font-semibold flex-1 text-sm">
@@ -116,7 +116,7 @@ const SignUp = () => {
         </label>
         <button
           type="submit"
-          className=" shadow bg-gray-100 hover:opacity-95 text-blue-600 text-lg font-semibold border rounded p-2 max-w-md "
+          className=" shadow bg-gray-100 hover:opacity-95 text-blue-600 text-lg font-bold border rounded p-2 max-w-md "
         >
           Create Account
         </button>
