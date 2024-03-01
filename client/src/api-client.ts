@@ -13,11 +13,12 @@ export const signup = async (formData: SignupFormData) => {
     });
     const data = await res.json();
     if (data.success === false) {
-      return new Error(data.message);
+      throw new Error(data.message);
     }
     return data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    throw new Error(err.message);
   }
 };
 
@@ -37,7 +38,8 @@ export const signin = async (formData: SigninFormData) => {
     }
     return data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    throw new Error(err.message);
   }
 };
 
@@ -50,4 +52,20 @@ export const validateToken = async () => {
     throw new Error("Token invalid");
   }
   return data;
+};
+
+export const signout = async () => {
+  try {
+    const res = await fetch("/api/auth/signout", {
+      credentials: "include",
+    });
+    const data = await res.json();
+    if (data.success === false) {
+      throw new Error(data.message);
+    }
+    return data;
+  } catch (err) {
+    console.error(err);
+    throw new Error(err.message);
+  }
 };

@@ -23,8 +23,8 @@ const signIn = () => {
       navigate("/");
       toast.success("Sign-up successfull", {className: "toast-message"});
     },
-    onError: async () => {
-      console.log("Login failed");
+    onError: async (error: Error) => {
+      console.log("Login failed", error);
       toast.error("Login failed", {className: "toast-message-error"});
     },
   });

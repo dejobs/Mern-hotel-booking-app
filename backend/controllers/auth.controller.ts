@@ -6,6 +6,14 @@ import {validationResult} from "express-validator";
 import errorHandler from "../utils/error";
 import {UserType} from "../models/user.model";
 
+declare global {
+  namespace Express {
+    interface Request {
+      userId: string;
+    }
+  }
+}
+
 // SIGNUP CONTROLLER //
 
 export const signup = async (

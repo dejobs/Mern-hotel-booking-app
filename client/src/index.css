@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 .toast-message {
-  background-color: #000000;
+  background-color: green;
   color: #ffffff;
   font-size: 20px;
   padding: 1rem 0.5rem;
 }
 
 .toast-message-error {
-  background-color: red;
+  background-color: rgb(255, 98, 0);
   color: #ffffff;
   font-size: 20px;
   padding: 1rem 0.5rem;

@@ -29,7 +29,7 @@ const SignUp = () => {
     },
     onError: (error: Error) => {
       console.log(error.message);
-      toast.error(error.message, {className: "toast-message-error"});
+      toast.error("Error signing up", {className: "toast-message-error"});
     },
   });
 
