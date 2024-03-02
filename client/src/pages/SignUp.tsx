@@ -1,5 +1,5 @@
 import {useForm} from "react-hook-form";
-import {useMutation} from "react-query";
+import {useMutation, useQueryClient} from "react-query";
 import * as apiClient from "../api-client";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
@@ -14,6 +14,7 @@ export type SignupFormData = {
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const {
     register,
@@ -23,13 +24,14 @@ const SignUp = () => {
   } = useForm<SignupFormData>();
 
   const mutation = useMutation(apiClient.signup, {
-    onSuccess: () => {
+    onSuccess: async () => {
+      toast.success("Sign-up successful", {className: "toast-message"});
+      await queryClient.invalidateQueries("validateToken");
       navigate("/");
-      toast.success("Sign-up successfull", {className: "toast-message"});
     },
     onError: (error: Error) => {
       console.log(error.message);
-      toast.error("Error signing up", {className: "toast-message-error"});
+      toast.error(error.message, {className: "toast-message-error"});
     },
   });
 

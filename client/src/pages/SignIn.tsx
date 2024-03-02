@@ -1,8 +1,9 @@
 import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
-import {useMutation} from "react-query";
+import {useMutation, useQueryClient} from "react-query";
 import {toast} from "react-toastify";
 import * as apiClient from "../api-client";
+import {Link} from "react-router-dom";
 
 export type SigninFormData = {
   email: string;
@@ -11,6 +12,7 @@ export type SigninFormData = {
 
 const signIn = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const {
     register,
@@ -20,8 +22,9 @@ const signIn = () => {
 
   const mutation = useMutation(apiClient.signin, {
     onSuccess: async () => {
+      toast.success("Sign-in successful", {className: "toast-message"});
+      await queryClient.invalidateQueries("validateToken");
       navigate("/");
-      toast.success("Sign-up successfull", {className: "toast-message"});
     },
     onError: async (error: Error) => {
       console.log("Login failed", error);
@@ -65,12 +68,22 @@ const signIn = () => {
             <span className="text-red-600">{errors.password.message}</span>
           )}
         </label>
-        <button
-          type="submit"
-          className=" shadow bg-gray-100 hover:opacity-95 text-blue-600 text-lg font-bold border rounded p-2 max-w-md "
-        >
-          Login
-        </button>
+        <span className="flex justify-between items-center">
+          <span className="text-sm">
+            <span>
+              Dont have an account?{" "}
+              <Link className="text-blue-600 underline" to={"/sign-up"}>
+                Signup here
+              </Link>
+            </span>
+          </span>
+          <button
+            type="submit"
+            className=" shadow bg-gray-100 hover:opacity-95 text-blue-600 text-lg font-bold border rounded p-2"
+          >
+            Login
+          </button>
+        </span>
       </form>
     </div>
   );
