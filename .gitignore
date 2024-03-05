@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+node_modules
 /.pnp
 .pnp.js
 
@@ -25,3 +26,5 @@ yarn-error.log*
 *.suo
 *sln
 .env
+dist
+.vscode

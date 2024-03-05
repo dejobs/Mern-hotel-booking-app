@@ -18,7 +18,7 @@ export const signup = async (formData: SignupFormData) => {
     return data;
   } catch (err) {
     console.error(err);
-    throw new Error(err.message);
+    throw new (Error as any)(err);
   }
 };
 
@@ -39,7 +39,7 @@ export const signin = async (formData: SigninFormData) => {
     return data;
   } catch (err) {
     console.error(err);
-    throw new Error(err.message);
+    throw new (Error as any)(err);
   }
 };
 
@@ -66,6 +66,6 @@ export const signout = async () => {
     return data;
   } catch (err) {
     console.error(err);
-    throw new Error(err.message);
+    throw new (Error as any)(err);
   }
 };

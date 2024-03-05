@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.route";
+import path from "path";
 dotenv.config();
 
 mongoose
@@ -23,11 +24,13 @@ app.use(
   })
 );
 
+app.use(express.static(path.join(__dirname, "../client/dist")));
+
+app.use("/api/auth", authRouter);
+
 app.listen(6500, () => {
   console.log("app running at port 6500!");
 });
-
-app.use("/api/auth", authRouter);
 
 //Middleware
 
