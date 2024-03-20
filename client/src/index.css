@@ -10,7 +10,7 @@
 }
 
 .toast-message-error {
-  background-color: rgb(255, 98, 0);
+  background-color: red;
   color: #ffffff;
   font-size: 20px;
   padding: 1rem 0.5rem;

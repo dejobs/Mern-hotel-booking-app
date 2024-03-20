@@ -16,13 +16,13 @@ const Header = () => {
             <>
               <Link
                 to="/my-bookings"
-                className="text-white  font-semibold sm:font-semibold px-1 sm:px-3  hover:text-teal-900 hover:bg-white "
+                className="text-white  font-semibold sm:font-semibold px-1 sm:px-3  hover:text-teal-900 hover:bg-white hover:rounded "
               >
                 My Bookings
               </Link>
               <Link
                 to="/my-hotels"
-                className="text-white font-medium sm:font-semibold px-1 sm:px-3 hover:text-teal-900 hover:bg-white "
+                className="text-white font-medium sm:font-semibold px-1 sm:px-3 hover:text-teal-900 hover:bg-white hover:rounded "
               >
                 My Hotels
               </Link>

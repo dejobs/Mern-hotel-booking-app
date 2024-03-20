@@ -1,0 +1,42 @@
+import {hotelFacilities} from "../../config/hotel-options-config";
+import {HotelFormData} from "./ManageHotelForm";
+import {useFormContext} from "react-hook-form";
+
+export const FacilitiesSection = () => {
+  const {
+    register,
+    formState: {errors},
+    watch,
+  } = useFormContext<HotelFormData>();
+
+  return (
+    <div>
+      <h2 className="text-2xl font-bold mb-3">Facilities</h2>
+      <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 items-center">
+        {hotelFacilities.map((facility) => (
+          <label className="flex flex-row gap-1 text-sm text-gray-700">
+            <input
+              type="checkbox"
+              value={facility}
+              {...register("facilities", {
+                validate: (facilities) => {
+                  if (facilities && facilities.length > 0) {
+                    return true;
+                  } else {
+                    return "At least one facility is required";
+                  }
+                },
+              })}
+            />
+            <span>{facility}</span>
+          </label>
+        ))}
+      </div>
+      {errors.facilities && (
+        <span className="text-red-600 text-sm font-bold">
+          {errors.facilities.message}
+        </span>
+      )}
+    </div>
+  );
+};

@@ -4,8 +4,16 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/auth.route";
+import myHotelRouter from "./routes/my-hotels.route";
 import path from "path";
+import {v2 as cloudinary} from "cloudinary";
 dotenv.config();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 mongoose
   .connect(process.env.MONGO as string)
@@ -27,6 +35,7 @@ app.use(
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.use("/api/auth", authRouter);
+app.use("/api/my-hotels", myHotelRouter);
 
 app.listen(6500, () => {
   console.log("app running at port 6500!");

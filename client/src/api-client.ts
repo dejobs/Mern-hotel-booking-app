@@ -69,3 +69,20 @@ export const signout = async () => {
     throw new (Error as any)(err);
   }
 };
+
+export const addMyHotel = async (hotelFormData: FormData) => {
+  try {
+    const res = await fetch("/api/my-hotels", {
+      method: "POST",
+      credentials: "include",
+      body: hotelFormData,
+    });
+    const data = await res.json();
+    if (data.success === false) {
+      throw new Error(data.message);
+    }
+    return data;
+  } catch (err) {
+    throw new (Error as any)(err);
+  }
+};
