@@ -20,6 +20,8 @@ mongoose
   .then(() => console.log("connected live to the mongodb server!!!"))
   .catch((err) => console.log(err.message));
 
+const __dirname = path.resolve();
+
 const app = express();
 
 app.use(express.json());
