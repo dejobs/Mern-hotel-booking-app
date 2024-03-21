@@ -9,7 +9,6 @@ import {
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import AddHotel from "./pages/AddHotel";
-import {useAppContext} from "./contexts/AppContext";
 
 /*
 function App() {

@@ -66,7 +66,7 @@ export const ManageHotelForm = ({onSave, isLoading}: props) => {
           <button
             disabled={isLoading}
             type="submit"
-            className=" font-bold border rounded text-xl px-4 py-2 text-white bg-blue-600 hover:opacity-90 disabled:bg-gray-500"
+            className=" font-bold border rounded text-xl px-4 py-2 text-white bg-blue-600 hover:opacity-90 disabled:bg-gray-500 disabled:cursor-not-allowed"
           >
             {isLoading ? "Saving..." : "Save"}
           </button>

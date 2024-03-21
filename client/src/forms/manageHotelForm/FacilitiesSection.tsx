@@ -6,7 +6,6 @@ export const FacilitiesSection = () => {
   const {
     register,
     formState: {errors},
-    watch,
   } = useFormContext<HotelFormData>();
 
   return (

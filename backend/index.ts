@@ -37,6 +37,10 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use("/api/auth", authRouter);
 app.use("/api/my-hotels", myHotelRouter);
 
+app.get("*", (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
+
 app.listen(6500, () => {
   console.log("app running at port 6500!");
 });
