@@ -27,18 +27,18 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended: true}));
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL as string,
     credentials: true,
   })
 );
 
-app.use(express.static(path.join(__dirname, "../client/dist")));
-
 app.use("/api/auth", authRouter);
 app.use("/api/my-hotels", myHotelRouter);
 
+app.use(express.static(path.join(__dirname, "../../client/dist")));
+
 app.get("*", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+  res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
 });
 
 app.listen(6500, () => {
