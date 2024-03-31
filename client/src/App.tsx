@@ -9,6 +9,8 @@ import {
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import AddHotel from "./pages/AddHotel";
+import MyHotels from "./pages/MyHotels";
+//import {useAppContext} from "./contexts/AppContext";
 
 /*
 function App() {
@@ -20,6 +22,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
         {isLoggedIn && <Route path="/add-hotel" element={<AddHotel />} />}
+        {isLoggedIn && <Route path="/my-hotels" element={<MyHotels />} />}
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     )
@@ -35,6 +38,7 @@ const router = createBrowserRouter(
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/add-hotel" element={<AddHotel />} />
+      <Route path="/my-hotels" element={<MyHotels />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Route>
   )

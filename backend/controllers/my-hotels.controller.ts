@@ -39,6 +39,19 @@ export const myHotels = async (
   }
 };
 
+export const myHotelListings = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const hotelListings = await Hotel.find({userId: req.userId});
+    res.status(200).json(hotelListings);
+  } catch (error) {
+    res.status(500).json("Error fetching my hotel listings");
+  }
+};
+
 /*
 //ALTERNATIVE WAY fFOR LOOPING
 

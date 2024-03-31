@@ -1,5 +1,6 @@
 import {SignupFormData} from "./pages/SignUp";
 import {SigninFormData} from "./pages/SignIn";
+import {HotelType} from "../../backend/models/hotel.model";
 
 export const signup = async (formData: SignupFormData) => {
   try {
@@ -80,6 +81,21 @@ export const addMyHotel = async (hotelFormData: FormData) => {
     const data = await res.json();
     if (data.success === false) {
       throw new Error(data.message);
+    }
+    return data;
+  } catch (err) {
+    throw new (Error as any)(err);
+  }
+};
+
+export const fetchMyhotels = async (): Promise<HotelType[]> => {
+  const res = await fetch("/api/my-hotels", {
+    credentials: "include",
+  });
+  try {
+    const data = await res.json();
+    if (data.success === false) {
+      throw new Error("Error fetching hotels");
     }
     return data;
   } catch (err) {
