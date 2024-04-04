@@ -4,6 +4,8 @@ import {myHotels} from "../controllers/my-hotels.controller";
 import verifyToken from "../utils/verifyUser";
 import {body} from "express-validator";
 import {myHotelListings} from "../controllers/my-hotels.controller";
+import {getMyHotelListing} from "../controllers/my-hotels.controller";
+import {updateMyHotelListing} from "../controllers/my-hotels.controller";
 
 const router = express.Router();
 
@@ -42,5 +44,14 @@ router.post(
 );
 
 router.get("/", verifyToken, myHotelListings);
+
+router.get("/:id", verifyToken, getMyHotelListing);
+
+router.put(
+  "/:hotelId",
+  verifyToken,
+  upload.array("imageFiles", 6),
+  updateMyHotelListing
+);
 
 export default router;

@@ -1,6 +1,6 @@
 import {SignupFormData} from "./pages/SignUp";
 import {SigninFormData} from "./pages/SignIn";
-import {HotelType} from "../../backend/models/hotel.model";
+import {HotelType} from "../../backend/shared/types";
 
 export const signup = async (formData: SignupFormData) => {
   try {
@@ -100,5 +100,37 @@ export const fetchMyhotels = async (): Promise<HotelType[]> => {
     return data;
   } catch (err) {
     throw new (Error as any)(err);
+  }
+};
+
+export const fetchMyhotelById = async (hotelId: string): Promise<HotelType> => {
+  const res = await fetch(`/api/my-hotels/${hotelId}`, {
+    credentials: "include",
+  });
+  try {
+    const data = await res.json();
+    if (data.success === false) {
+      throw new Error("Error fetching hotel");
+    }
+    return data;
+  } catch (err) {
+    throw new (Error as any)(err);
+  }
+};
+
+export const updateMyHotelById = async (hotelFormData: FormData) => {
+  try {
+    const res = await fetch(`/api/my-hotels/${hotelFormData.get("hotelId")}`, {
+      method: "PUT",
+      credentials: "include",
+      body: hotelFormData,
+    });
+    const data = await res.json();
+    if (data.success === false) {
+      throw new Error("Failed to update hotel");
+    }
+    return data;
+  } catch (error) {
+    throw new (Error as any)("Failed to update hotel");
   }
 };

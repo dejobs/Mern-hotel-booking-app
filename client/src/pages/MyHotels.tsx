@@ -1,19 +1,21 @@
 import {Link} from "react-router-dom";
 import {useQuery} from "react-query";
 import * as apiClient from "../api-client";
-import {toast} from "react-toastify";
+
 import {BsBuilding, BsMap} from "react-icons/bs";
 import {BiHotel, BiMoney, BiStar} from "react-icons/bi";
 
 const MyHotels = () => {
   const {data: hotelData} = useQuery("fetchMyHotels", apiClient.fetchMyhotels, {
-    onError: async () => {
-      toast.error("failed to load", {className: "toast-message-error"});
-    },
+    onError: async () => {},
   });
 
   if (!hotelData) {
-    return <span>No Hotel Found</span>;
+    return (
+      <div className="container mx-auto text-xl font-semibold italic">
+        No Hotel Found
+      </div>
+    );
   }
 
   return (
@@ -31,23 +33,22 @@ const MyHotels = () => {
         {hotelData.map((hotel) => (
           <div className="flex flex-col justify-between border border-slate-300 rounded-lg p-6 gap-3">
             <h2 className="text-xl font-semibold">{hotel.name}</h2>
-            <div className="text-lg font-normal whitespace-pre-line">
+            <div className="text-base font-normal whitespace-pre-line">
               {hotel.description}
             </div>
             <div className="grid grid-cols-5 gap-2 text-sm text-slate-800 flex-wrap">
-              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 whitespace-nowrap">
+              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
                 <BsMap />
                 {`${hotel.city}, ${hotel.country}`}
               </div>
-              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 whitespace-nowrap">
+              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
                 <BsBuilding />
                 {hotel.type}
               </div>
-              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 whitespace-nowrap">
-                <BiMoney />
-                {hotel.pricePerNight} per night
+              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
+                <BiMoney />£{hotel.pricePerNight} per night
               </div>
-              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 truncate whitespace-nowrap ">
+              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 truncate  ">
                 <BiHotel />
                 {`${hotel.adultCount} ${
                   hotel.adultCount > 1 ? "adults" : "adult"
@@ -55,7 +56,7 @@ const MyHotels = () => {
                   hotel.adultCount > 1 ? "children" : "child"
                 }`}
               </div>
-              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 whitespace-nowrap">
+              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
                 <BiStar />
                 {hotel.starRating} Star rating
               </div>
