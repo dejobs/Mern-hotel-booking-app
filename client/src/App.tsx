@@ -11,6 +11,7 @@ import SignIn from "./pages/SignIn";
 import AddHotel from "./pages/AddHotel";
 import MyHotels from "./pages/MyHotels";
 import EditHotel from "./pages/EditHotel";
+import Search from "./pages/Search";
 //import {useAppContext} from "./contexts/AppContext";
 
 /*
@@ -38,6 +39,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Layout />}>
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/sign-in" element={<SignIn />} />
+      <Route path="/search" element={<Search />} />
       <Route path="/add-hotel" element={<AddHotel />} />
       <Route path="/my-hotels" element={<MyHotels />} />
       <Route path="/edit-hotel/:hotelId" element={<EditHotel />} />

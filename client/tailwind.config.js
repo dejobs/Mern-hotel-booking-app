@@ -5,7 +5,7 @@ export default {
     extend: {},
     container: {
       padding: {
-        lg: "10rem",
+        lg: "5rem",
       },
     },
   },
