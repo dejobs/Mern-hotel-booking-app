@@ -37,8 +37,6 @@ const signIn = () => {
     mutation.mutate(data);
   });
 
-  console.log(location.state);
-
   return (
     <div className="container mx-auto flex flex-col gap-5 py-6">
       <h1 className="text-3xl font-bold">Sign in</h1>
