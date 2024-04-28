@@ -4,7 +4,7 @@ import errorHandler from "../utils/error";
 import Hotel from "../models/hotel.model";
 import {HotelType} from "../shared/types";
 
-export const myHotels = async (
+export const addMyNewHotel = async (
   req: Request,
   res: Response,
   next: NextFunction

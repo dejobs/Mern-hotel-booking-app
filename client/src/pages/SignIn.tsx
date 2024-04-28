@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {useMutation, useQueryClient} from "react-query";
 import {toast} from "react-toastify";
 import * as apiClient from "../api-client";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 export type SigninFormData = {
   email: string;
@@ -12,6 +12,7 @@ export type SigninFormData = {
 
 const signIn = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const queryClient = useQueryClient();
 
   const {
@@ -23,7 +24,7 @@ const signIn = () => {
   const mutation = useMutation(apiClient.signin, {
     onSuccess: async () => {
       await queryClient.invalidateQueries("validateToken");
-      navigate("/");
+      navigate(location.state?.from?.pathname || "/");
       toast.success("Sign-in successful", {className: "toast-message"});
     },
     onError: async (error: Error) => {
@@ -35,6 +36,8 @@ const signIn = () => {
   const onSubmit = handleSubmit((data) => {
     mutation.mutate(data);
   });
+
+  console.log(location.state);
 
   return (
     <div className="container mx-auto flex flex-col gap-5 py-6">

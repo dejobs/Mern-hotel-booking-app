@@ -12,6 +12,7 @@ import AddHotel from "./pages/AddHotel";
 import MyHotels from "./pages/MyHotels";
 import EditHotel from "./pages/EditHotel";
 import Search from "./pages/Search";
+import Detail from "./pages/Detail";
 //import {useAppContext} from "./contexts/AppContext";
 
 /*
@@ -25,6 +26,7 @@ function App() {
         <Route path="/sign-in" element={<SignIn />} />
         {isLoggedIn && <Route path="/add-hotel" element={<AddHotel />} />}
         {isLoggedIn && <Route path="/my-hotels" element={<MyHotels />} />}
+        {isLoggedIn && <Route path="/edit-hotel/:hotelId" element={<EditHotel />} />}
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     )
@@ -40,6 +42,7 @@ const router = createBrowserRouter(
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/search" element={<Search />} />
+      <Route path="/detail/:hotelId" element={<Detail />} />
       <Route path="/add-hotel" element={<AddHotel />} />
       <Route path="/my-hotels" element={<MyHotels />} />
       <Route path="/edit-hotel/:hotelId" element={<EditHotel />} />

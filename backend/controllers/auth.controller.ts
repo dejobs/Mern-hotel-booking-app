@@ -95,6 +95,7 @@ export const signin = async (
   }
 };
 
+// SIGNOUT CONTROLLER //
 export const signout = (req: Request, res: Response) => {
   res
     .clearCookie("auth_token")

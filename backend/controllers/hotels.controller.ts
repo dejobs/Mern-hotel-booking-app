@@ -1,6 +1,8 @@
 import {Request, Response, NextFunction} from "express";
 import Hotel from "../models/hotel.model";
 import {HotelSearchResponse} from "../shared/types";
+import errorHandler from "../utils/error";
+import {validationResult} from "express-validator";
 
 export const searchHotels = async (
   req: Request,
@@ -107,8 +109,26 @@ const constructSearchQuery = (queryParams: any) => {
 
   return constructedQuery;
 };
-
 //$gte means Greater than or equal
 //$eq is comparison operator for equal to
 //$lte means lesser than or equal
 //i mean ignore case sensitivity, RegExp is regular expression
+
+/****getHotel controller*****/
+
+export const getHotel = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({errors: errors.array()});
+  }
+  try {
+    const hotel = await Hotel.findById(req.params.hotelId);
+    res.status(201).json(hotel);
+  } catch (error) {
+    next(errorHandler(500, "Error fetching hotel"));
+  }
+};

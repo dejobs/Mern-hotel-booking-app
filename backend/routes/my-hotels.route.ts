@@ -1,6 +1,6 @@
 import express from "express";
 import multer from "multer";
-import {myHotels} from "../controllers/my-hotels.controller";
+import {addMyNewHotel} from "../controllers/my-hotels.controller";
 import verifyToken from "../utils/verifyUser";
 import {body} from "express-validator";
 import {myHotelListings} from "../controllers/my-hotels.controller";
@@ -40,7 +40,7 @@ router.post(
   verifyToken,
   myHotelValidator,
   upload.array("imageFiles", 6),
-  myHotels
+  addMyNewHotel
 );
 
 router.get("/", verifyToken, myHotelListings);
