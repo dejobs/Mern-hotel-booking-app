@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 import User from "../models/user.model";
 import {validationResult} from "express-validator";
 import errorHandler from "../utils/error";
-import {UserType} from "../models/user.model";
 
 declare global {
   namespace Express {

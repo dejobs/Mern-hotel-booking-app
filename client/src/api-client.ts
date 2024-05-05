@@ -1,6 +1,26 @@
 import {SignupFormData} from "./pages/SignUp";
 import {SigninFormData} from "./pages/SignIn";
-import {HotelSearchResponse, HotelType} from "../../backend/shared/types";
+import {
+  HotelSearchResponse,
+  HotelType,
+  UserType,
+} from "../../backend/shared/types";
+
+export const fetchCurrentUser = async (): Promise<UserType> => {
+  const res = await fetch(`/api/user/me`, {
+    credentials: "include",
+  });
+  try {
+    const data = await res.json();
+    if (data.success === false) {
+      throw new Error("Error fetching user");
+    }
+    return data;
+  } catch (err) {
+    console.log(err);
+    throw new (Error as any)("Something went wrong");
+  }
+};
 
 export const signup = async (formData: SignupFormData) => {
   try {
