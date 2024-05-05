@@ -5,8 +5,8 @@ export type UserType = {
   firstName: string;
   lastName: string;
   avatar: string;
-  createdAt: NativeDate;
-  updatedAt: NativeDate;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 export type HotelType = {
