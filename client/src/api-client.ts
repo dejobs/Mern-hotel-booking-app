@@ -3,8 +3,10 @@ import {SigninFormData} from "./pages/SignIn";
 import {
   HotelSearchResponse,
   HotelType,
+  PaymentIntentResponse,
   UserType,
 } from "../../backend/shared/types";
+import {BookingFormData} from "./forms/bookingForm/BookingForm";
 
 export const fetchCurrentUser = async (): Promise<UserType> => {
   const res = await fetch(`/api/user/me`, {
@@ -213,5 +215,51 @@ export const fetchHotelById = async (hotelId: string): Promise<HotelType> => {
   } catch (error) {
     console.error(error);
     throw new (Error as any)("Error fetching hotel");
+  }
+};
+
+export const createPaymentIntent = async (
+  hotelId: string,
+  numberOfNights: string
+): Promise<PaymentIntentResponse> => {
+  const res = await fetch(`/api/hotels/${hotelId}/bookings/payment-intent`, {
+    credentials: "include",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({numberOfNights}),
+  });
+  try {
+    const data = await res.json();
+    if (data.success === false) {
+      throw new Error("Error fetching payment intent");
+    }
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw new (Error as any)(error);
+  }
+};
+
+export const createRoomBooking = async (formData: BookingFormData) => {
+  const res = await fetch(`/api/hotels/${formData.hotelId}/bookings`, {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
+
+  const data = await res.json();
+
+  try {
+    if (data.success === false) {
+      throw new Error("Error completing booking");
+    }
+    return data;
+  } catch (error) {
+    throw new Error("Error completing booking");
   }
 };

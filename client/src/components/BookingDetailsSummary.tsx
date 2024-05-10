@@ -48,7 +48,7 @@ const BookingDetailsSummary = ({
         <span className="text-gray-400 font-semibold">Guest</span>
         <span className="text-sm font-bold">
           {adultCount} {adultCount > 1 ? "adults" : "adult"} & {childCount}{" "}
-          children
+          {childCount > 1 ? "children" : "child"}
         </span>
       </div>
     </div>
