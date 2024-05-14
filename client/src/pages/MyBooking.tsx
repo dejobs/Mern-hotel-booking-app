@@ -1,5 +1,6 @@
 import {useQuery} from "react-query";
 import * as apiClient from "../api-client";
+import {Link} from "react-router-dom";
 
 const MyBookings = () => {
   const {data: userBookings} = useQuery(
@@ -34,9 +35,12 @@ const MyBookings = () => {
               </div>
               <div className="flex flex-col gap-2 overflow-y-auto max-h-[300px]">
                 <div>
-                  <div className="text-2xl font-bold capitalize ">
-                    {hotel.name}
-                  </div>
+                  <Link to={`/detail/${hotel._id}`}>
+                    <div className="text-2xl font-bold capitalize ">
+                      {hotel.name}
+                    </div>
+                  </Link>
+
                   <div className="text-base font-normal text-slate-400">{`${hotel.city}, ${hotel.country}`}</div>
                 </div>
 
