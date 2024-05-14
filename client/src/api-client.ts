@@ -19,7 +19,6 @@ export const fetchCurrentUser = async (): Promise<UserType> => {
     }
     return data;
   } catch (err) {
-    console.log(err);
     throw new (Error as any)("Something went wrong");
   }
 };
@@ -261,5 +260,20 @@ export const createRoomBooking = async (formData: BookingFormData) => {
     return data;
   } catch (error) {
     throw new Error("Error completing booking");
+  }
+};
+
+export const fetchMyBookings = async (): Promise<HotelType[]> => {
+  const res = await fetch("/api/my-bookings", {
+    credentials: "include",
+  });
+  try {
+    const data = await res.json();
+    if (data.success === false) {
+      throw new Error("Error fetching your bookings");
+    }
+    return data;
+  } catch (error) {
+    throw new Error("Error fetching your booking");
   }
 };

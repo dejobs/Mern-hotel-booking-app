@@ -7,6 +7,7 @@ import authRouter from "./routes/auth.route";
 import myHotelRouter from "./routes/my-hotels.route";
 import hotelRouter from "./routes/hotels.route";
 import userRouter from "./routes/users.route";
+import myBookingsRouter from "./routes/my-bookings.route";
 import path from "path";
 import {v2 as cloudinary} from "cloudinary";
 dotenv.config();
@@ -38,6 +39,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/my-hotels", myHotelRouter);
 app.use("/api/hotels", hotelRouter);
 app.use("/api/user", userRouter);
+app.use("/api/my-bookings", myBookingsRouter);
 
 app.use(express.static(path.join(__dirname, "../../client/dist")));
 
