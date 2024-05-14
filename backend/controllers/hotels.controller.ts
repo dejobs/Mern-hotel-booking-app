@@ -13,6 +13,16 @@ dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
 
+export const allHotelsFromLastUpdted = async (req: Request, res: Response) => {
+  try {
+    const hotels = await Hotel.find().sort("-lastUpdated");
+    res.json(hotels);
+  } catch (error) {
+    console.log("error fetching hotels");
+    res.json({message: "Error fetching hotels"}).status(500);
+  }
+};
+
 export const searchHotels = async (
   req: Request,
   res: Response,

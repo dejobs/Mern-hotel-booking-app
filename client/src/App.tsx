@@ -17,27 +17,6 @@ import Booking from "./pages/Booking";
 import MyBookings from "./pages/MyBooking";
 //import {useAppContext} from "./contexts/AppContext";
 
-/*
-function App() {
-  const {isLoggedIn} = useAppContext();
-
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<Layout />}>
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        {isLoggedIn && <Route path="/add-hotel" element={<AddHotel />} />}
-        {isLoggedIn && <Route path="/my-hotels" element={<MyHotels />} />}
-        {isLoggedIn && <Route path="/edit-hotel/:hotelId" element={<EditHotel />} />}
-        <Route path="*" element={<Navigate to="/" />} />
-      </Route>
-    )
-  );
-
-  return <RouterProvider router={router} />;
-}
-*/
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
@@ -60,3 +39,35 @@ function App() {
 }
 
 export default App;
+
+/**
+ function App() {
+  const {isLoggedIn} = useAppContext();
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout />}>
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/detail/:hotelId" element={<Detail />} />
+        {isLoggedIn && <Route path="/add-hotel" element={<AddHotel />} />}
+        {isLoggedIn && <Route path="/my-hotels" element={<MyHotels />} />}
+        {isLoggedIn && (
+          <Route path="/edit-hotel/:hotelId" element={<EditHotel />} />
+        )}
+        {isLoggedIn && (
+          <Route path="/hotel/:hotelId/booking" element={<Booking />} />
+        )}
+        {isLoggedIn && <Route path="/my-bookings" element={<MyBookings />} />}
+        <Route path="*" element={<Navigate to="/" />} />
+      </Route>
+    )
+  );
+
+  return <RouterProvider router={router} />;
+}
+
+
+
+ */

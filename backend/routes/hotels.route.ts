@@ -7,8 +7,11 @@ import {
 import {getHotel} from "../controllers/hotels.controller";
 import {param} from "express-validator";
 import verifyToken from "../utils/verifyUser";
+import {allHotelsFromLastUpdted} from "../controllers/hotels.controller";
 
 const router = express.Router();
+
+router.get("/", allHotelsFromLastUpdted);
 
 router.get("/search", searchHotels);
 
