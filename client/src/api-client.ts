@@ -109,6 +109,19 @@ export const addMyHotel = async (hotelFormData: FormData) => {
   }
 };
 
+export const fetchHotelsFromLastUpdated = async (): Promise<HotelType[]> => {
+  const res = await fetch("/api/hotels");
+  const data = await res.json();
+  try {
+    if (data.success === false) {
+      throw new Error("Error fetch hotels");
+    }
+    return data;
+  } catch (err) {
+    throw new Error(err as any);
+  }
+};
+
 export const fetchMyhotels = async (): Promise<HotelType[]> => {
   const res = await fetch("/api/my-hotels", {
     credentials: "include",
@@ -275,5 +288,32 @@ export const fetchMyBookings = async (): Promise<HotelType[]> => {
     return data;
   } catch (error) {
     throw new Error("Error fetching your booking");
+  }
+};
+
+export type FormDataType = {
+  name: string | null;
+  email: string | null;
+  photo: string | null;
+};
+
+export const google = async (formData: FormDataType) => {
+  const res = await fetch("/api/auth/google", {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
+
+  const data = await res.json();
+  try {
+    if (data.success === false) {
+      throw new Error("Error signing up account");
+    }
+    return data;
+  } catch (error) {
+    throw new Error("Error signing up account");
   }
 };

@@ -4,6 +4,7 @@ import {check} from "express-validator";
 import {signin} from "../controllers/auth.controller";
 import {signout} from "../controllers/auth.controller";
 import verifyToken from "../utils/verifyUser";
+import {google} from "../controllers/auth.controller";
 
 const router = express.Router();
 
@@ -27,6 +28,7 @@ const validatorCheck2 = [
 
 router.post("/signup", validatorCheck, signup);
 router.post("/signin", validatorCheck2, signin);
+router.post("/google", google);
 router.get("/validate-token", verifyToken, validateToken);
 router.get("/signout", signout);
 
