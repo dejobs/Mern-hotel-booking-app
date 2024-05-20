@@ -1,6 +1,6 @@
 import {GoogleAuthProvider, getAuth, signInWithPopup} from "firebase/auth";
 import {app} from "../firebase";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useLocation} from "react-router-dom";
 import * as apiClient from "../api-client";
 import {useMutation} from "react-query";
 import {toast} from "react-toastify";
@@ -9,12 +9,13 @@ import {useQueryClient} from "react-query";
 
 const OAuth = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const queryClient = useQueryClient();
 
   const {mutate, isLoading} = useMutation(apiClient.google, {
     onSuccess: async () => {
       await queryClient.invalidateQueries("validateToken");
-      navigate("location.state?.from?.pathname || /");
+      navigate(location.state?.from?.pathname || "/");
       toast.success("Sign-up successful", {className: "toast-message"});
     },
     onError: (error: Error) => {
