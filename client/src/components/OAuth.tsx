@@ -45,7 +45,7 @@ const OAuth = () => {
       disabled={isLoading}
       onClick={handleGoogleClick}
       type="button"
-      className="bg-red-500 text-white p-2 rounded-md uppercase hover:opacity-95 font-normal"
+      className="bg-red-500 text-white p-2 rounded-md uppercase hover:opacity-95 font-normal disabled:cursor-not-allowed"
     >
       continue with google
     </button>

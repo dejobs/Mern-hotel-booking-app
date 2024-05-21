@@ -10,10 +10,10 @@ const Layout = () => {
     <div className="flex flex-col min-h-screen ">
       <Header />
       <ToastContainer position="top-right" autoClose={2000} />
-      <div className="container mx-auto">
+      <div className="container mx-auto -mt-8 ">
         <SearchBar />
       </div>
-      <main>
+      <main className="container mx-auto ">
         <Outlet />
       </main>
       <Footer />

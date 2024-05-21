@@ -8,7 +8,8 @@ import EditHotel from "./pages/EditHotel";
 import Search from "./pages/Search";
 import Detail from "./pages/Detail";
 import Booking from "./pages/Booking";
-import MyBookings from "./pages/MyBooking";
+import MyBookings from "./pages/MyBookings";
+import Home from "./pages/Home";
 import {useAppContext} from "./contexts/AppContext";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/detail/:hotelId" element={<Detail />} />
           {isLoggedIn && <Route path="/add-hotel" element={<AddHotel />} />}

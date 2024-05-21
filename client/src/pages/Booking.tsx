@@ -54,30 +54,28 @@ const Booking = () => {
   }
 
   return (
-    <div className="container mx-auto my-8">
-      <div className="grid md:grid-cols-[1fr_2fr] gap-4">
-        <BookingDetailsSummary
-          checkIn={search.checkIn}
-          checkOut={search.checkOut}
-          adultCount={search.adultCount}
-          childCount={search.childCount}
-          numberOfNights={numberOfNights}
-          hotel={hotel}
-        />
-        {currentUser && paymentIntentData && (
-          <Elements
-            stripe={stripePromise}
-            options={{
-              clientSecret: paymentIntentData.clientSecret,
-            }}
-          >
-            <BookingForm
-              currentUser={currentUser}
-              paymentIntent={paymentIntentData}
-            />
-          </Elements>
-        )}
-      </div>
+    <div className="grid md:grid-cols-[1fr_2fr] gap-4 my-8">
+      <BookingDetailsSummary
+        checkIn={search.checkIn}
+        checkOut={search.checkOut}
+        adultCount={search.adultCount}
+        childCount={search.childCount}
+        numberOfNights={numberOfNights}
+        hotel={hotel}
+      />
+      {currentUser && paymentIntentData && (
+        <Elements
+          stripe={stripePromise}
+          options={{
+            clientSecret: paymentIntentData.clientSecret,
+          }}
+        >
+          <BookingForm
+            currentUser={currentUser}
+            paymentIntent={paymentIntentData}
+          />
+        </Elements>
+      )}
     </div>
   );
 };

@@ -69,10 +69,7 @@ export const ManageHotelForm = ({onSave, isLoading, hotel}: props) => {
 
   return (
     <FormProvider {...formMethods}>
-      <form
-        onSubmit={onSubmit}
-        className="container mx-auto flex flex-col gap-10 mb-3"
-      >
+      <form onSubmit={onSubmit} className=" flex flex-col gap-10 mb-3">
         <DetailsSection />
         <TypeSection />
         <FacilitiesSection />
