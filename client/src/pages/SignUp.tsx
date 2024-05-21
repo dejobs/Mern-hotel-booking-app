@@ -4,6 +4,7 @@ import * as apiClient from "../api-client";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 import OAuth from "../components/OAuth";
+import {Link} from "react-router-dom";
 
 export type SignupFormData = {
   firstName: string;
@@ -145,6 +146,15 @@ const SignUp = () => {
               Create Account
             </button>
             <OAuth />
+            <span>
+              Have an account?{" "}
+              <Link
+                className="text-blue-900 underline font-medium"
+                to={"/sign-in"}
+              >
+                Signin here
+              </Link>
+            </span>
           </form>
         </div>
       </div>
