@@ -5,6 +5,7 @@ import {toast} from "react-toastify";
 import * as apiClient from "../api-client";
 import {Link, useLocation} from "react-router-dom";
 import OAuth from "../components/OAuth";
+import images from "../images/sign-in-page-background.jpg";
 
 export type SigninFormData = {
   email: string;
@@ -38,8 +39,11 @@ const SignIn = () => {
     mutation.mutate(data);
   });
   return (
-    <div className="bg-gradient-to-br from-orange-500 to-gray-300 h-screen flex items-center justify-center">
-      <div className=" bg-gradient-to-br from-gray-300 to-teal-700 rounded-lg p-6 sm:p-16  shadow-md border border-gray-200 w-[600px] h-[500px]">
+    <div
+      className=" h-screen flex items-center  justify-center bg-cover bg-center bg-fixed"
+      style={{backgroundImage: `url(${images})`}}
+    >
+      <div className=" bg-gradient-to-br from-gray-300 via-gray-300 to-teal-700 rounded-lg p-6 sm:p-16  shadow-md border border-gray-200 w-[600px] h-[550px]">
         <h1 className="text-3xl font-semibold text-orange-500 border-b pb-2 border-gray-400">
           Welcome back!{" "}
           <span className="text-2xl text-black hidden sm:inline">
@@ -49,7 +53,7 @@ const SignIn = () => {
         <span className="text-black">Sign in to continue</span>
 
         <form className="flex flex-col mt-5 " onSubmit={onSubmit}>
-          <label className="flex flex-col mb-4 ">
+          <label className="flex flex-col mb-4 font-semibold">
             Email
             <input
               className="border-b border-orange-500 p-2 focus:outline-none bg-transparent "
@@ -62,7 +66,7 @@ const SignIn = () => {
             )}{" "}
           </label>
 
-          <label className="flex flex-col mb-4">
+          <label className="flex flex-col mb-4 font-semibold">
             Password
             <input
               className="border-b border-gray-400 p-2 focus:outline-none bg-transparent"

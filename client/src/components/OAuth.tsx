@@ -48,7 +48,7 @@ const OAuth = () => {
       type="button"
       className="disabled:cursor-not-allowed items-center"
     >
-      <img src={GoogleIcon} alt="Google" className="w-12 h-12 mr-2 " />
+      <img src={GoogleIcon} alt="Google" className="w-10 h-10 " />
     </button>
   );
 };
