@@ -6,6 +6,7 @@ import {useMutation} from "react-query";
 import {toast} from "react-toastify";
 import {FormDataType} from "../api-client";
 import {useQueryClient} from "react-query";
+import GoogleIcon from "../images/google_g_icon.png";
 
 const OAuth = () => {
   const navigate = useNavigate();
@@ -45,9 +46,9 @@ const OAuth = () => {
       disabled={isLoading}
       onClick={handleGoogleClick}
       type="button"
-      className="bg-red-500 text-white p-2 rounded-md uppercase hover:opacity-95 font-normal disabled:cursor-not-allowed"
+      className="disabled:cursor-not-allowed items-center"
     >
-      continue with google
+      <img src={GoogleIcon} alt="Google" className="w-12 h-12 mr-2 " />
     </button>
   );
 };
