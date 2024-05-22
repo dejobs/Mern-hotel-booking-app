@@ -140,8 +140,9 @@ const SignUp = () => {
               )}
             </label>
             <button
+              disabled={mutation.isLoading}
               type="submit"
-              className=" shadow bg-gray-100 hover:opacity-95 text-blue-600 text-lg font-bold border rounded p-2 w-full "
+              className=" shadow bg-gray-100 hover:opacity-95 text-blue-600 text-lg font-bold border rounded p-2 w-full disabled:cursor-not-allowed"
             >
               Create Account
             </button>

@@ -101,7 +101,8 @@ const signIn = () => {
 
               <button
                 type="submit"
-                className=" shadow bg-gray-100 hover:opacity-95 text-blue-600 text-lg font-bold border rounded p-2"
+                disabled={mutation.isLoading}
+                className=" shadow bg-gray-100 hover:opacity-95 text-blue-600 text-lg font-bold border rounded p-2 disabled:cursor-not-allowed"
               >
                 Login
               </button>
