@@ -18,7 +18,7 @@ const HotelFacilitiesFilter = ({selectedFacilities, onChange}: Props) => {
             onChange={onChange}
             checked={selectedFacilities.includes(facility)}
           />
-          <span>{facility}</span>
+          <span className="truncate">{facility}</span>
         </label>
       ))}
     </div>
