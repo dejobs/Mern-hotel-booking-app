@@ -13,7 +13,7 @@ const Layout = () => {
       <div className="container mx-auto -mt-8 ">
         <SearchBar />
       </div>
-      <main className="container mx-auto ">
+      <main className="container mx-auto mb-[50px] ">
         <Outlet />
       </main>
       <Footer />
