@@ -56,7 +56,7 @@ const SignIn = () => {
           <label className="flex flex-col mb-4 font-semibold">
             Email
             <input
-              className="border-b border-orange-500 p-2 focus:outline-none bg-transparent "
+              className="font-normal border-0 border-b border-orange-500 p-2 outline-none focus:ring-0  bg-transparent "
               {...register("email", {required: "This field is required"})}
               type="email"
               placeholder="Enter your email"
@@ -69,7 +69,7 @@ const SignIn = () => {
           <label className="flex flex-col mb-4 font-semibold">
             Password
             <input
-              className="border-b border-gray-400 p-2 focus:outline-none bg-transparent"
+              className="font-normal border-0 border-b border-gray-400 p-2 outline-none focus:ring-0 bg-transparent"
               {...register("password", {
                 required: "This field is required",
                 minLength: {
@@ -102,7 +102,7 @@ const SignIn = () => {
         </div>
         <span className="flex justify-center tracking-wide">
           Dont have an account?
-          <Link className="text-white font-medium" to={"/sign-up"}>
+          <Link className="text-white font-medium ml-2" to={"/sign-up"}>
             Signup here!
           </Link>
         </span>

@@ -56,7 +56,7 @@ const SignUp = () => {
             <label className="flex flex-col mb-4 flex-1 font-semibold ">
               First Name
               <input
-                className="border-b border-orange-500 px-2 py-1 focus:outline-none bg-transparent "
+                className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:ring-0 bg-transparent "
                 {...register("firstName", {required: "This field is required"})}
                 type="text"
                 placeholder="Enter your first name"
@@ -70,7 +70,7 @@ const SignUp = () => {
             <label className="flex flex-col mb-4 flex-1 font-semibold">
               Last Name
               <input
-                className="border-b border-orange-500 px-2 py-1 focus:outline-none bg-transparent "
+                className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:ring-0 bg-transparent  "
                 {...register("lastName", {required: "This field is required"})}
                 type="text"
                 placeholder="Enter your last name"
@@ -86,7 +86,7 @@ const SignUp = () => {
           <label className="flex flex-col mb-4 font-semibold ">
             Email
             <input
-              className="border-b border-orange-500 px-2 py-1 focus:outline-none bg-transparent "
+              className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:ring-0 bg-transparent  "
               {...register("email", {required: "This field is required"})}
               type="email"
               placeholder="Enter your email"
@@ -101,7 +101,7 @@ const SignUp = () => {
           <label className="flex flex-col mb-4 font-semibold">
             Password
             <input
-              className="border-b border-orange-500 px-2 py-1 focus:outline-none bg-transparent"
+              className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:ring-0 bg-transparent "
               {...register("password", {
                 required: "This field is required",
                 minLength: {
@@ -121,7 +121,7 @@ const SignUp = () => {
           <label className="flex flex-col mb-4 font-semibold">
             Confirm password
             <input
-              className="border-b border-orange-500 px-2 py-1 focus:outline-none bg-transparent"
+              className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:ring-0 bg-transparent"
               {...register("confirmPassword", {
                 required: "This field is required",
                 validate: (val) => {
@@ -159,7 +159,7 @@ const SignUp = () => {
         </div>
         <span className="flex justify-center tracking-wide">
           Have an account?
-          <Link className="text-white font-medium" to={"/sign-in"}>
+          <Link className="text-white font-medium ml-2" to={"/sign-in"}>
             Signin here!
           </Link>
         </span>

@@ -41,7 +41,7 @@ const SearchBar = () => {
         <input
           type="text"
           placeholder="Where are you going?"
-          className="text-base w-full focus:outline-none"
+          className="text-base w-full border-0 focus:ring-0"
           value={destination}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setDestination(e.target.value);
@@ -52,7 +52,7 @@ const SearchBar = () => {
         <label className="items-center flex">
           Adults:
           <input
-            className="w-full p-1 focus:outline-none font-bold"
+            className="w-full p-1 border-0 focus:ring-0 font-bold"
             type="number"
             min={1}
             max={20}
@@ -65,7 +65,7 @@ const SearchBar = () => {
         <label className="items-center flex">
           Children:
           <input
-            className="w-full p-1 focus:outline-none font-bold"
+            className="w-full p-1 border-0 focus:ring-0 font-bold"
             type="number"
             min={0}
             max={20}
@@ -86,7 +86,7 @@ const SearchBar = () => {
           minDate={minDate}
           maxDate={maxDate}
           placeholderText="check-in Date"
-          className="min-w-full bg-white p-2 focus:outline-none"
+          className="min-w-full bg-white p-2 border-0 focus:ring-0"
           wrapperClassName="min-w-full"
         />
       </div>
@@ -100,7 +100,7 @@ const SearchBar = () => {
           minDate={minDate}
           maxDate={maxDate}
           placeholderText="check-in Date"
-          className="min-w-full bg-white p-2 focus:outline-none"
+          className="min-w-full bg-white p-2 border-0 focus:ring-0"
           wrapperClassName="min-w-full"
         />
       </div>
