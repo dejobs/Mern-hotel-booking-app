@@ -20,12 +20,12 @@ const SignOutButton = () => {
   };
 
   return (
-    <button
-      className="text-blue-600 px-3 font-semibold rounded bg-white hover:bg-gray-200"
+    <span
+      className=" text-white font-semibold text-base  hover:text-blue-600 "
       onClick={handleClick}
     >
       Sign Out
-    </button>
+    </span>
   );
 };
 
