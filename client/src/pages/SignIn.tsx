@@ -56,20 +56,22 @@ const SignIn = () => {
           <label className="flex flex-col mb-4 font-semibold">
             Email
             <input
-              className="font-normal border-0 border-b border-orange-500 p-2 outline-none focus:ring-0  bg-transparent "
+              className="font-normal border-0 border-b border-orange-500 p-2 outline-none focus:border-orange-500 focus:ring-0  bg-transparent "
               {...register("email", {required: "This field is required"})}
               type="email"
               placeholder="Enter your email"
             />
             {errors.email && (
-              <span className="text-red-600 ">{errors.email.message}</span>
+              <span className="text-red-600 text-sm font-normal">
+                {errors.email.message}
+              </span>
             )}{" "}
           </label>
 
           <label className="flex flex-col mb-4 font-semibold">
             Password
             <input
-              className="font-normal border-0 border-b border-gray-400 p-2 outline-none focus:ring-0 bg-transparent"
+              className="font-normal border-0 border-b border-gray-400 p-2 outline-none focus:border-gray-400 focus:ring-0 bg-transparent"
               {...register("password", {
                 required: "This field is required",
                 minLength: {
@@ -81,7 +83,9 @@ const SignIn = () => {
               placeholder="Enter your password"
             />
             {errors.password && (
-              <span className="text-red-600">{errors.password.message}</span>
+              <span className="text-red-600 text-sm font-normal">
+                {errors.password.message}
+              </span>
             )}{" "}
           </label>
 

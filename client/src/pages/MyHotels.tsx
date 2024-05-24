@@ -30,47 +30,49 @@ const MyHotels = () => {
         </Link>
       </div>
       <div className="grid grid-cols-1 gap-6">
-        {hotelData.map((hotel) => (
-          <div className="flex flex-col justify-between border border-slate-300 rounded-lg p-6 gap-3">
-            <h2 className="text-xl font-semibold">{hotel.name}</h2>
-            <div className="text-base font-normal whitespace-pre-line">
-              {hotel.description}
+        {hotelData &&
+          hotelData.length > 0 &&
+          hotelData.map((hotel) => (
+            <div className="flex flex-col justify-between border border-slate-300 rounded-lg p-6 gap-3">
+              <h2 className="text-xl font-semibold">{hotel.name}</h2>
+              <div className="text-base font-normal whitespace-pre-line">
+                {hotel.description}
+              </div>
+              <div className="grid grid-cols-5 gap-2 text-sm text-slate-800 flex-wrap">
+                <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
+                  <BsMap />
+                  {`${hotel.city}, ${hotel.country}`}
+                </div>
+                <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
+                  <BsBuilding />
+                  {hotel.type}
+                </div>
+                <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
+                  <BiMoney />£{hotel.pricePerNight} per night
+                </div>
+                <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 truncate  ">
+                  <BiHotel />
+                  {`${hotel.adultCount} ${
+                    hotel.adultCount > 1 ? "adults" : "adult"
+                  }, ${hotel.childCount} ${
+                    hotel.adultCount > 1 ? "children" : "child"
+                  }`}
+                </div>
+                <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
+                  <BiStar />
+                  {hotel.starRating} Star rating
+                </div>
+              </div>
+              <span className="flex justify-end">
+                <Link
+                  to={`/edit-hotel/${hotel._id}`}
+                  className=" px-4 py-2 rounded bg-teal-600 text-white text-xl font-bold  hover:bg--500"
+                >
+                  View details
+                </Link>
+              </span>
             </div>
-            <div className="grid grid-cols-5 gap-2 text-sm text-slate-800 flex-wrap">
-              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
-                <BsMap />
-                {`${hotel.city}, ${hotel.country}`}
-              </div>
-              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
-                <BsBuilding />
-                {hotel.type}
-              </div>
-              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
-                <BiMoney />£{hotel.pricePerNight} per night
-              </div>
-              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 truncate  ">
-                <BiHotel />
-                {`${hotel.adultCount} ${
-                  hotel.adultCount > 1 ? "adults" : "adult"
-                }, ${hotel.childCount} ${
-                  hotel.adultCount > 1 ? "children" : "child"
-                }`}
-              </div>
-              <div className="border border-slate-300 rounded-sm p-2  flex items-center gap-1 ">
-                <BiStar />
-                {hotel.starRating} Star rating
-              </div>
-            </div>
-            <span className="flex justify-end">
-              <Link
-                to={`/edit-hotel/${hotel._id}`}
-                className=" px-4 py-2 rounded bg-teal-600 text-white text-xl font-bold  hover:bg--500"
-              >
-                View details
-              </Link>
-            </span>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

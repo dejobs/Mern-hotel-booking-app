@@ -8,7 +8,8 @@ const Home = () => {
   );
 
   const topRowHotels = hotels && hotels.length > 0 ? hotels.slice(0, 2) : [];
-  const bottomRowHotels = hotels && hotels.length > 2 ? hotels.slice(2) : [];
+  const bottomRowHotels =
+    hotels && hotels.length > 2 ? hotels.slice(2, 17) : [];
   return (
     <div className="space-y-3 my-8">
       <h2 className="text-3xl font-bold">Lastest Destinations</h2>

@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import * as apiClient from "../api-client";
 import {useMutation, useQuery, useQueryClient} from "react-query";
 import {ManageHotelForm} from "../forms/manageHotelForm/ManageHotelForm";
@@ -6,6 +6,7 @@ import {toast} from "react-toastify";
 
 const EditHotel = () => {
   const {hotelId} = useParams();
+  const navigate = useNavigate();
 
   const {data: hotel} = useQuery(
     "fetchMyHotelById",
@@ -21,6 +22,7 @@ const EditHotel = () => {
     onSuccess: async () => {
       toast.success("Updated", {className: "toast-message"});
       await queryClient.invalidateQueries("fetchMyHotelById");
+      navigate("/my-hotels");
     },
 
     onError: async () => {

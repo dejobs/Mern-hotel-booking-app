@@ -56,13 +56,13 @@ const SignUp = () => {
             <label className="flex flex-col mb-4 flex-1 font-semibold ">
               First Name
               <input
-                className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:ring-0 bg-transparent "
+                className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:border-orange-500 focus:ring-0 bg-transparent "
                 {...register("firstName", {required: "This field is required"})}
                 type="text"
                 placeholder="Enter your first name"
               />
               {errors.firstName && (
-                <span className="text-red-600 text-xs truncate">
+                <span className="text-red-600 text-xs truncate font-normal">
                   {errors.firstName.message}
                 </span>
               )}{" "}
@@ -70,13 +70,13 @@ const SignUp = () => {
             <label className="flex flex-col mb-4 flex-1 font-semibold">
               Last Name
               <input
-                className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:ring-0 bg-transparent  "
+                className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:border-orange-500 focus:ring-0 bg-transparent  "
                 {...register("lastName", {required: "This field is required"})}
                 type="text"
                 placeholder="Enter your last name"
               />
               {errors.lastName && (
-                <span className="text-red-600 text-xs truncate ">
+                <span className="text-red-600 text-xs truncate font-normal">
                   {errors.lastName.message}
                 </span>
               )}{" "}
@@ -86,13 +86,13 @@ const SignUp = () => {
           <label className="flex flex-col mb-4 font-semibold ">
             Email
             <input
-              className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:ring-0 bg-transparent  "
+              className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:border-orange-500 focus:ring-0 bg-transparent  "
               {...register("email", {required: "This field is required"})}
               type="email"
               placeholder="Enter your email"
             />
             {errors.email && (
-              <span className="text-red-600 text-xs truncate ">
+              <span className="text-red-600 text-xs truncate font-normal">
                 {errors.email.message}
               </span>
             )}{" "}
@@ -101,7 +101,7 @@ const SignUp = () => {
           <label className="flex flex-col mb-4 font-semibold">
             Password
             <input
-              className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:ring-0 bg-transparent "
+              className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:border-orange-500 focus:ring-0 bg-transparent "
               {...register("password", {
                 required: "This field is required",
                 minLength: {
@@ -113,7 +113,7 @@ const SignUp = () => {
               placeholder="Enter your password"
             />
             {errors.password && (
-              <span className="text-red-600 text-xs truncate">
+              <span className="text-red-600 text-xs truncate font-normal">
                 {errors.password.message}
               </span>
             )}{" "}
@@ -121,7 +121,7 @@ const SignUp = () => {
           <label className="flex flex-col mb-4 font-semibold">
             Confirm password
             <input
-              className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:ring-0 bg-transparent"
+              className="font-normal border-0 border-b border-orange-500 px-2 py-1 outline-none focus:border-orange-500 focus:ring-0 bg-transparent"
               {...register("confirmPassword", {
                 required: "This field is required",
                 validate: (val) => {
@@ -136,7 +136,7 @@ const SignUp = () => {
               placeholder="Enter your password"
             />
             {errors.password && (
-              <span className="text-red-600 text-xs truncate">
+              <span className="text-red-600 text-xs truncate font-normal">
                 {errors.password.message}
               </span>
             )}{" "}

@@ -41,7 +41,9 @@ const Header = () => {
         </span>
       </div>
       <div className="container mx-auto text-white flex flex-col gap-2 mt-5 mb-10">
-        <h1 className="text-5xl font-semibold">Find a home away from home</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold">
+          Find a home away from home
+        </h1>
         <p className="text-lg ">
           Explore affordable hotel rate for your idea getaway...
         </p>

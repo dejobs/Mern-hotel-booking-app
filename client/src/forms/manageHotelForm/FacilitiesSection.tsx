@@ -15,6 +15,7 @@ export const FacilitiesSection = () => {
         {hotelFacilities.map((facility) => (
           <label className="flex flex-row gap-1 text-sm text-gray-700">
             <input
+              className="focus:ring-0 focus:border-black"
               type="checkbox"
               value={facility}
               {...register("facilities", {

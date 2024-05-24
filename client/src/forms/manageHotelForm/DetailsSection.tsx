@@ -13,7 +13,7 @@ export const DetailsSection = () => {
       <label className="flex flex-col text-gray-700 font-semibold flex-1 text-sm">
         Name
         <input
-          className="border rounded w-full py-1 px-2 font-normal"
+          className="border rounded w-full py-1 px-2 font-normal focus:ring-0 focus:border-black"
           {...register("name", {required: "This field is required"})}
           type="text"
         />
@@ -25,7 +25,7 @@ export const DetailsSection = () => {
         <label className="flex flex-col text-gray-700 font-semibold flex-1 text-sm">
           City
           <input
-            className="border rounded w-full py-1 px-2 font-normal"
+            className="border rounded w-full py-1 px-2 font-normal focus:ring-0 focus:border-black"
             {...register("city", {required: "This field is required"})}
             type="text"
           />
@@ -38,7 +38,7 @@ export const DetailsSection = () => {
         <label className="flex flex-col text-gray-700 font-semibold flex-1 text-sm">
           Country
           <input
-            className="border rounded w-full py-1 px-2 font-normal"
+            className="border rounded w-full py-1 px-2 font-normal focus:ring-0 focus:border-black"
             {...register("country", {required: "This field is required"})}
             type="text"
           />
@@ -52,7 +52,7 @@ export const DetailsSection = () => {
       <label className="flex flex-col text-gray-700 font-semibold flex-1 text-sm">
         Description
         <textarea
-          className="border rounded w-full py-1 px-2 font-normal"
+          className="border rounded w-full py-1 px-2 font-normal focus:ring-0 focus:border-black"
           {...register("description", {required: "This field is required"})}
           rows={10}
         />
@@ -65,7 +65,7 @@ export const DetailsSection = () => {
       <label className="flex flex-col text-gray-700 font-semibold w-[50%] text-sm">
         Price Per Night
         <input
-          className="border rounded w-full py-1 px-2 font-normal"
+          className="border rounded w-full py-1 px-2 font-normal focus:ring-0 focus:border-black"
           {...register("pricePerNight", {required: "This field is required"})}
           type="number"
           min={1}
@@ -79,7 +79,7 @@ export const DetailsSection = () => {
       <label className="flex flex-col text-gray-700 font-semibold w-[50%] text-sm">
         Star Rating
         <select
-          className="border rounded p-2 text-gray-700 font-normal"
+          className="border rounded p-2 text-gray-700 font-normal focus:ring-0 focus:border-black"
           {...register("starRating", {required: "This field is required"})}
         >
           <option className="font-normal text-sm" value={""}>

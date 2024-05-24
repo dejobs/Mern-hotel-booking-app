@@ -14,7 +14,7 @@ export const GuestSection = () => {
         <label className="flex flex-col text-gray-700 text-sm font-semibold gap-1 flex-1">
           Adults
           <input
-            className="border rounded py-2 px-2 font-normal"
+            className="border rounded py-2 px-2 font-normal focus:ring-0 focus:border-black"
             type="number"
             min={1}
             max={4}
@@ -29,7 +29,7 @@ export const GuestSection = () => {
         <label className="flex flex-col text-gray-700 text-sm font-semibold gap-1 flex-1">
           Children
           <input
-            className="border rounded py-2 px-2 font-normal"
+            className="border rounded py-2 px-2 font-normal focus:ring-0 focus:border-black"
             type="number"
             min={0}
             max={6}
