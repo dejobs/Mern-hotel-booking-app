@@ -45,6 +45,14 @@ const Header = () => {
         <Navbar.Collapse>
           {isLoggedIn && (
             <>
+              <Navbar.Link active={path === "/"}>
+                <Link
+                  className="md:hidden text-white  text-base  hover:text-black"
+                  to={"/"}
+                >
+                  Home
+                </Link>
+              </Navbar.Link>
               <Navbar.Link className="md:hidden" active={path === "/about"}>
                 <Link
                   className="block   text-white hover:text-black "
