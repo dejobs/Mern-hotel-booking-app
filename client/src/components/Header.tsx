@@ -3,19 +3,31 @@ import {useAppContext} from "../contexts/AppContext";
 import SignOutButton from "./SignOutButton";
 import {FaMoon} from "react-icons/fa";
 import {Button, Navbar} from "flowbite-react";
+import {useState} from "react";
 
 const Header = () => {
   const {isLoggedIn} = useAppContext();
   const path = useLocation().pathname;
+  const [darkMode, setDarkMode] = useState(false);
+
   console.log(isLoggedIn);
+  console.log([darkMode, "mode"]);
+
+  const handleClick = () => {
+    setDarkMode((prevState) => !prevState);
+  };
+
   return (
     <header className="bg-teal-800 pb-10 pt-6 ">
       <Navbar rounded className="bg-transparent  container mx-auto">
         {/* Brand */}
         <Navbar.Brand>
-          <span className="self-center whitespace-nowrap text-2xl md:text-3xl text-white font-semibold dark:text-white">
+          <Link
+            to={"/"}
+            className="self-center whitespace-nowrap text-2xl md:text-3xl text-white font-semibold dark:text-white"
+          >
             TravelMaker.com
-          </span>
+          </Link>
         </Navbar.Brand>
 
         {/* Light/Dark Toggle Button */}
@@ -24,7 +36,7 @@ const Header = () => {
           color="gray"
           pill
         >
-          <FaMoon />
+          <FaMoon onClick={handleClick} />
         </Button>
 
         {/* Navigation Links */}
