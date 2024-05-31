@@ -9,6 +9,7 @@ import {PersistGate} from "redux-persist/integration/react";
 import {persistStore} from "redux-persist";
 import {AppContextProvider} from "./contexts/AppContext.tsx";
 import {SearchContextProvider} from "./contexts/SearchContext.tsx";
+import {ThemeProvider} from "./contexts/ThemeContext.tsx";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -27,7 +28,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <QueryClientProvider client={queryClient}>
           <AppContextProvider>
             <SearchContextProvider>
-              <App />
+              <ThemeProvider>
+                <App />
+              </ThemeProvider>
             </SearchContextProvider>
           </AppContextProvider>
         </QueryClientProvider>

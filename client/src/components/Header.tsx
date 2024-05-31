@@ -2,20 +2,24 @@ import {Link, useLocation} from "react-router-dom";
 import {useAppContext} from "../contexts/AppContext";
 import SignOutButton from "./SignOutButton";
 import {FaMoon} from "react-icons/fa";
+import {CiLight} from "react-icons/ci";
 import {Button, Navbar} from "flowbite-react";
-import {useState} from "react";
+import {useTheme} from "../contexts/ThemeContext";
+import {useEffect} from "react";
 
 const Header = () => {
   const {isLoggedIn} = useAppContext();
-  const path = useLocation().pathname;
-  const [darkMode, setDarkMode] = useState(false);
+  const {pathname: path} = useLocation();
+
+  const {theme, toggleTheme} = useTheme();
 
   console.log(isLoggedIn);
-  console.log([darkMode, "mode"]);
+  console.log(theme);
 
-  const handleClick = () => {
-    setDarkMode((prevState) => !prevState);
-  };
+  useEffect(() => {
+    document.querySelector("html")?.classList.remove("dark", "light");
+    document.querySelector("html")?.classList.add(theme);
+  }, [theme]);
 
   return (
     <header className="bg-teal-800 pb-10 pt-6 ">
@@ -32,11 +36,12 @@ const Header = () => {
 
         {/* Light/Dark Toggle Button */}
         <Button
-          className="flex items-center w-7 h-7 rounded-full ml-auto mr-3 p-2  bg-gray-200 dark:bg-gray-800"
+          onClick={toggleTheme}
+          className="flex items-center w-7 h-7 rounded-full  border-0 focus:ring-0 ml-auto mr-3 p-2  bg-gray-200 dark:bg-gray-800"
           color="gray"
           pill
         >
-          <FaMoon onClick={handleClick} />
+          {theme === "light" ? <FaMoon /> : <CiLight />}
         </Button>
 
         {/* Navigation Links */}
