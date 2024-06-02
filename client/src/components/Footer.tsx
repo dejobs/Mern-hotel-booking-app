@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-teal-800 py-6 shadow-md mt-auto ">
+    <footer className="bg-teal-800 dark:bg-slate-700   py-6 shadow-md mt-auto ">
       <div className="container mx-auto flex justify-between ">
         <span className="text-lg sm:text-3xl text-white font-bold tracking-tight">
           TravelMaker.com

@@ -13,7 +13,7 @@ const MyBookings = () => {
 
   if (!userBookings || userBookings.length < 1) {
     return (
-      <div className="container mx-auto font-bold text-2xl my-6">
+      <div className="container mx-auto font-bold text-2xl my-6 dark:text-white">
         No booking found!
       </div>
     );
@@ -21,10 +21,10 @@ const MyBookings = () => {
 
   return (
     <div className="flex flex-col gap-5 my-6  ">
-      <h1 className="text-3xl font-bold">My Bookings</h1>
+      <h1 className="text-3xl font-bold dark:text-white">My Bookings</h1>
       <div className="flex flex-col gap-4 space-y-4">
         {userBookings.map((hotel) => (
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-5 border rounded-md border-gray-300 p-5 bg-gray-50">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-5 border rounded-md border-gray-300 p-5 bg-gray-50 dark:bg-gray-400">
             <div className="md:w-full md:h-[300px]">
               <img
                 src={hotel.imageUrls[0]}

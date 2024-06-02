@@ -43,10 +43,10 @@ const SignUp = () => {
 
   return (
     <div
-      className="bg-cover bg-center bg-fixed h-screen flex items-center justify-center"
+      className="bg-cover bg-center bg-fixed h-screen flex items-center justify-center "
       style={{backgroundImage: `url(${image})`}}
     >
-      <div className=" bg-gradient-to-br from-gray-300 via-gray-300  to-teal-700 rounded-lg py-6 px-6 sm:px-16  shadow-md border border-gray-200 w-[650px] h-fit sm:h-[600px]">
+      <div className=" bg-gradient-to-br from-gray-300 via-gray-300  to-teal-700 rounded-lg py-6 px-6 sm:px-16  shadow-md border border-gray-200 w-[600px] h-fit sm:h-[600px]">
         <h1 className="text-3xl font-semibold text-orange-500 border-b pb-1 border-gray-400">
           Create an Account!
         </h1>

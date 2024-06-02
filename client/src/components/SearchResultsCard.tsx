@@ -8,7 +8,7 @@ type Props = {
 
 const SearchResultCard = ({hotel}: Props) => {
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-[2fr_3fr] border border-slate-300 p-8 gap-8">
+    <div className="grid grid-cols-1 xl:grid-cols-[2fr_3fr] border border-slate-300 p-8 gap-8 dark:bg-gray-200">
       <div className="w-full h-[300px]">
         <img
           className={"h-full w-full object-cover object-center"}

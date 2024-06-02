@@ -22,8 +22,11 @@ const Header = () => {
   }, [theme]);
 
   return (
-    <header className="bg-teal-800 pb-10 pt-6 ">
-      <Navbar rounded className="bg-transparent  container mx-auto">
+    <header className="bg-teal-800 dark:bg-slate-700 pb-10 pt-6 ">
+      <Navbar
+        rounded
+        className="bg-transparent  container mx-auto dark:bg-transparent"
+      >
         {/* Brand */}
         <Navbar.Brand>
           <Link
@@ -37,7 +40,7 @@ const Header = () => {
         {/* Light/Dark Toggle Button */}
         <Button
           onClick={toggleTheme}
-          className="flex items-center w-7 h-7 rounded-full  border-0 focus:ring-0 ml-auto mr-3 p-2  bg-gray-200 dark:bg-gray-800"
+          className="flex items-center w-7 h-7 rounded-full focus:ring-0  ml-auto mr-3 p-2  bg-gray-200 dark:bg-gray-800"
           color="gray"
           pill
         >
@@ -58,17 +61,17 @@ const Header = () => {
                   Home
                 </Link>
               </Navbar.Link>
-              <Navbar.Link className="md:hidden" active={path === "/about"}>
+              <Navbar.Link className="" active={path === "/about"}>
                 <Link
-                  className="block   text-white hover:text-black "
+                  className="text-base   text-white hover:text-black md:hover:text-slate-400 "
                   to={"/about"}
                 >
-                  About us
+                  About
                 </Link>
               </Navbar.Link>
               <Navbar.Link active={path === "/my-hotels"}>
                 <Link
-                  className="text-white text-base hover:text-black"
+                  className="text-white text-base hover:text-black md:hover:text-slate-400"
                   to={"/my-hotels"}
                 >
                   My Hotels
@@ -76,7 +79,7 @@ const Header = () => {
               </Navbar.Link>
               <Navbar.Link active={path === "/my-bookings"}>
                 <Link
-                  className="text-white  text-base  hover:text-black"
+                  className="text-white  text-base  hover:text-black md:hover:text-slate-400"
                   to={"/my-bookings"}
                 >
                   My bookings
@@ -94,7 +97,7 @@ const Header = () => {
             <Navbar.Link>
               <Link
                 to={"/sign-in"}
-                className="block text-white hover:text-black"
+                className="block text-white hover:text-black md:hover:text-slate-400"
               >
                 Sign In
               </Link>

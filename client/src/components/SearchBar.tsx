@@ -33,7 +33,7 @@ const SearchBar = () => {
 
   return (
     <form
-      className="p-3 bg-orange-400 rounded shadow-md grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4"
+      className="p-3 dark:bg-yellow-700 bg-orange-400 rounded shadow-md grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4"
       onSubmit={handleSubmit}
     >
       <div className="flex flex-row items-center flex-1  bg-white p-2">

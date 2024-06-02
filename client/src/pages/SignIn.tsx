@@ -40,7 +40,7 @@ const SignIn = () => {
   });
   return (
     <div
-      className=" h-screen flex items-center  justify-center bg-cover bg-center bg-fixed"
+      className="h-screen flex items-center  justify-center bg-cover bg-center bg-fixed"
       style={{backgroundImage: `url(${images})`}}
     >
       <div className=" bg-gradient-to-br from-gray-300 via-gray-300 to-teal-700 rounded-lg p-6 sm:p-16  shadow-md border border-gray-200 w-[600px] h-[550px]">
