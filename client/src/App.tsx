@@ -16,6 +16,7 @@ import Detail from "./pages/Detail";
 import Booking from "./pages/Booking";
 import MyBookings from "./pages/MyBookings";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 import PrivateRoute from "./components/PrivateRoute";
 
 const router = createBrowserRouter(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
           <Route path="/edit-hotel/:hotelId" element={<EditHotel />} />
           <Route path="/hotel/:hotelId/booking" element={<Booking />} />
           <Route path="/my-bookings" element={<MyBookings />} />
+          <Route path="/profile/:userId" element={<Profile />} />
         </Route>
       </Route>
       <Route path="/sign-up" element={<SignUp />} />

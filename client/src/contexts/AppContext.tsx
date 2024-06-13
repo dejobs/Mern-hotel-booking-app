@@ -8,6 +8,7 @@ const STRIPE_PUB_KEY = import.meta.env.VITE_STRIPE_PUB_KEY || "";
 type AppContext = {
   isLoggedIn: boolean;
   stripePromise: Promise<Stripe | null>;
+  id: string;
 };
 
 const AppContext = createContext<AppContext | undefined>(undefined);
@@ -15,11 +16,17 @@ const AppContext = createContext<AppContext | undefined>(undefined);
 const stripePromise = loadStripe(STRIPE_PUB_KEY);
 
 export const AppContextProvider = ({children}: {children: React.ReactNode}) => {
-  const {isError} = useQuery("validateToken", apiClient.validateToken, {
-    retry: false,
-  });
+  const {isError, data: userId} = useQuery(
+    "validateToken",
+    apiClient.validateToken,
+    {
+      retry: false,
+    }
+  );
   return (
-    <AppContext.Provider value={{isLoggedIn: !isError, stripePromise}}>
+    <AppContext.Provider
+      value={{isLoggedIn: !isError, stripePromise, id: userId}}
+    >
       {children}
     </AppContext.Provider>
   );

@@ -23,6 +23,26 @@ export const fetchCurrentUser = async (): Promise<UserType> => {
   }
 };
 
+export const updateProfile = async (userProfileFormData: FormData) => {
+  try {
+    const res = await fetch(
+      `/api/user/update/${userProfileFormData.get("userId")}`,
+      {
+        method: "PUT",
+        credentials: "include",
+        body: userProfileFormData,
+      }
+    );
+    const data = await res.json();
+    if (data.success === false) {
+      throw new Error("Failed to update profile");
+    }
+    return data;
+  } catch (error) {
+    throw new (Error as any)("Failed to update profile");
+  }
+};
+
 export const signup = async (formData: SignupFormData) => {
   try {
     const res = await fetch("/api/auth/signup", {
