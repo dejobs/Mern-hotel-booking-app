@@ -17,6 +17,7 @@ import Booking from "./pages/Booking";
 import MyBookings from "./pages/MyBookings";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import About from "./pages/About";
 import PrivateRoute from "./components/PrivateRoute";
 
 const router = createBrowserRouter(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/detail/:hotelId" element={<Detail />} />
+        <Route path="/about" element={<About />} />
         <Route element={<PrivateRoute />}>
           <Route path="/add-hotel" element={<AddHotel />} />
           <Route path="/my-hotels" element={<MyHotels />} />

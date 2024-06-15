@@ -61,23 +61,26 @@ const Header = () => {
 
         <Navbar.Collapse>
           {isLoggedIn && (
+            <Navbar.Link active={path === "/"}>
+              <Link
+                className="md:hidden text-white  text-base  hover:text-black"
+                to={"/"}
+              >
+                Home
+              </Link>
+            </Navbar.Link>
+          )}
+          <Navbar.Link className="" active={path === "/about"}>
+            <Link
+              className="text-base   text-white hover:text-black md:hover:text-slate-400 md:text-sm"
+              to={"/about"}
+            >
+              About
+            </Link>
+          </Navbar.Link>
+
+          {isLoggedIn && (
             <>
-              <Navbar.Link active={path === "/"}>
-                <Link
-                  className="md:hidden text-white  text-base  hover:text-black"
-                  to={"/"}
-                >
-                  Home
-                </Link>
-              </Navbar.Link>
-              <Navbar.Link className="" active={path === "/about"}>
-                <Link
-                  className="text-base   text-white hover:text-black md:hover:text-slate-400 md:text-sm"
-                  to={"/about"}
-                >
-                  About
-                </Link>
-              </Navbar.Link>
               <Navbar.Link active={path === "/my-hotels"}>
                 <Link
                   className="text-white text-base hover:text-black md:hover:text-slate-400 md:text-sm"
