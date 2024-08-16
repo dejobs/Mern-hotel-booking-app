@@ -1,31 +1,14 @@
-import {Link, useLocation} from "react-router-dom";
-import {useAppContext} from "../contexts/AppContext";
-import SignOutButton from "./SignOutButton";
+import {Link} from "react-router-dom";
 import {FaMoon} from "react-icons/fa";
 import {CiLight} from "react-icons/ci";
-import {Button, Navbar} from "flowbite-react";
+import {Button} from "flowbite-react";
 import {useTheme} from "../contexts/ThemeContext";
 import {useEffect} from "react";
-import {useQuery, useQueryClient} from "react-query";
-import * as apiClient from "../api-client";
 import MobileNav from "./MobileNav";
 import MainNav from "./MainNav";
 
 const Header = () => {
-  const {isLoggedIn} = useAppContext();
-  const {pathname: path} = useLocation();
   const {theme, toggleTheme} = useTheme();
-  const queryClient = useQueryClient();
-
-  const {data: currentUser} = useQuery(
-    "fetchUserData",
-    apiClient.fetchCurrentUser,
-    {
-      onSuccess: async () => {
-        await queryClient.invalidateQueries("fetchUserData");
-      },
-    }
-  );
 
   useEffect(() => {
     document.querySelector("html")?.classList.remove("dark", "light");
