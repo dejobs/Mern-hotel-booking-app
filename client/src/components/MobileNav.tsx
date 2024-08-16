@@ -30,9 +30,9 @@ const MobileNav = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Menu className="text-slate-800" />
+        <Menu className="text-slate-800 dark:text-white" />
       </SheetTrigger>
-      <SheetContent className="space-y-3">
+      <SheetContent className="space-y-3 dark:bg-slate-600">
         <SheetTitle>
           <span>Welcome to TravelMaker</span>
         </SheetTitle>

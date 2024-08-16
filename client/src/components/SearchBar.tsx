@@ -49,8 +49,8 @@ const SearchBar = () => {
         />
       </div>
       <div className="flex bg-white px-2 py-1 gap-2 ">
-        <label className="items-center flex">
-          Adults:
+        <label className="items-center flex  overflow-x-hidden">
+          Adult:
           <input
             className="w-full p-1 border-0 focus:ring-0 font-bold"
             type="number"
@@ -62,8 +62,8 @@ const SearchBar = () => {
             }}
           />
         </label>
-        <label className="items-center flex">
-          Children:
+        <label className=" items-center flex  overflow-x-hidden">
+          Child:
           <input
             className="w-full p-1 border-0 focus:ring-0 font-bold"
             type="number"
@@ -76,7 +76,7 @@ const SearchBar = () => {
           />
         </label>
       </div>
-      <div>
+      <div className="">
         <DatePicker
           selected={checkIn}
           onChange={(date) => setCheckIn(date as Date)}
@@ -86,11 +86,11 @@ const SearchBar = () => {
           minDate={minDate}
           maxDate={maxDate}
           placeholderText="check-in Date"
-          className="min-w-full bg-white p-2 border-0 focus:ring-0"
+          className="min-w-full  p-2 border-0 focus:ring-0 w-full"
           wrapperClassName="min-w-full"
         />
       </div>
-      <div>
+      <div className="">
         <DatePicker
           selected={checkOut}
           onChange={(date) => setCheckOUt(date as Date)}
@@ -100,18 +100,18 @@ const SearchBar = () => {
           minDate={minDate}
           maxDate={maxDate}
           placeholderText="check-in Date"
-          className="min-w-full bg-white p-2 border-0 focus:ring-0"
+          className="min-w-full   p-2 border-0 focus:ring-0 w-full"
           wrapperClassName="min-w-full"
         />
       </div>
       <div className="flex gap-1">
         <button
           type="submit"
-          className="w-2/3 bg-teal-700 text-white text-xl font-semibold p-[6px] h-full  hover:bg-teal-500 hover:shadow-md focus:outline-none  "
+          className="w-1/2 bg-teal-700 text-white text-xl font-semibold p-[6px] h-full  hover:bg-teal-500 hover:shadow-md focus:outline-none  "
         >
           Search
         </button>
-        <button className="w-1/3 bg-red-600 text-white text-xl font-semibold p-[6px]  h-full hover:bg-red-500 hover:shadow-md focus:outline-none">
+        <button className="w-1/2 bg-red-600 text-white text-xl font-semibold p-[6px]  h-full hover:bg-red-500 hover:shadow-md focus:outline-none">
           Clear
         </button>
       </div>
