@@ -7,7 +7,7 @@ import {
 } from "./ui/sheet";
 import {Separator} from "./ui/separator";
 import {Menu} from "lucide-react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {useAppContext} from "../contexts/AppContext";
 import SignOutButton from "./SignOutButton";
 import {useQuery, useQueryClient} from "react-query";
@@ -40,41 +40,73 @@ const MobileNav = () => {
         <SheetDescription className="space-y-3">
           {isLoggedIn && (
             <div className="flex flex-col space-y-3">
-              <Link className=" text-lg  hover:text-orange-500" to={"/"}>
+              <NavLink
+                className={({isActive}) =>
+                  isActive
+                    ? " text-lg p-1 bg-teal-300"
+                    : " text-lg p-1  hover:text-orange-500 hover:bg-slate-200"
+                }
+                to={"/"}
+              >
                 Home
-              </Link>
-              <Link
-                className="text-lg  hover:text-orange-500"
+              </NavLink>
+              <NavLink
+                className={({isActive}) =>
+                  isActive
+                    ? "text-lg p-1  bg-teal-300"
+                    : "text-lg p-1  hover:text-orange-500 hover:bg-slate-200"
+                }
                 to={"/my-hotels"}
               >
                 My Hotels
-              </Link>
-              <Link
-                className="text-lg  hover:text-orange-500"
+              </NavLink>
+              <NavLink
+                className={({isActive}) =>
+                  isActive
+                    ? "text-lg p-1 bg-teal-300"
+                    : "text-lg p-1  hover:text-orange-500 hover:bg-slate-200"
+                }
                 to={"/my-bookings"}
               >
                 My bookings
-              </Link>
-              <Link className="" to={`/profile/${currentUser?._id}`}>
+              </NavLink>
+              <NavLink
+                className={({isActive}) =>
+                  isActive ? "p-1 bg-teal-300" : "hover:bg-slate-200 p-1"
+                }
+                to={`/profile/${currentUser?._id}`}
+              >
                 <span className="">
                   <img
                     src={currentUser?.avatar}
                     className="object-center object-cover w-7 h-7 rounded-full"
                   />
                 </span>
-              </Link>
+              </NavLink>
             </div>
           )}
           <div className="flex flex-col space-y-3">
-            <Link className="text-lg  hover:text-orange-500" to={"/about"}>
+            <NavLink
+              className={({isActive}) =>
+                isActive
+                  ? "text-lg p-1 bg-teal-300"
+                  : "text-lg p-1  hover:text-orange-500 hover:bg-slate-200"
+              }
+              to={"/about"}
+            >
               About
-            </Link>
+            </NavLink>
             {isLoggedIn ? (
-              <SignOutButton />
+              <span className="text-lg p-1 hover:bg-slate-200">
+                <SignOutButton />
+              </span>
             ) : (
-              <Link className="text-lg  hover:text-orange-500" to={`/sign-in`}>
+              <NavLink
+                className="text-lg p-1  hover:text-orange-500 hover:bg-slate-200"
+                to={`/sign-in`}
+              >
                 Sign In
-              </Link>
+              </NavLink>
             )}
           </div>
         </SheetDescription>

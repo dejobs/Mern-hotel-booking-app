@@ -36,12 +36,12 @@ const SearchBar = () => {
       className="p-3 dark:bg-yellow-700 bg-orange-400 rounded shadow-md grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4"
       onSubmit={handleSubmit}
     >
-      <div className="flex flex-row items-center flex-1  bg-white ">
+      <div className="flex flex-row items-center flex-1 py-1  bg-white ">
         <MdTravelExplore size={25} className="mr-2" />
         <input
           type="text"
           placeholder="Where are you going?"
-          className="text-base w-full border-0 focus:ring-0"
+          className="text-base py-1 w-full border-0 focus:ring-0"
           value={destination}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setDestination(e.target.value);

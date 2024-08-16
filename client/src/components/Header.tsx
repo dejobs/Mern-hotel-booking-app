@@ -16,7 +16,7 @@ const Header = () => {
   }, [theme]);
 
   return (
-    <header className="container mx-auto bg-teal-800 dark:bg-slate-700 pb-10 pt-6 ">
+    <header className="container mx-auto bg-teal-800 dark:bg-slate-700 pb-10 pt-6">
       <div className="flex justify-between items-center">
         <Link
           to={"/"}
@@ -24,24 +24,28 @@ const Header = () => {
         >
           TravelMaker.com
         </Link>
-        <div className="flex justify-between items-center space-x-4"></div>
-        <Button
-          onClick={toggleTheme}
-          className="flex items-center w-6 h-6 rounded-full focus:ring-0  ml-auto mr-3 p-2  bg-gray-200 dark:bg-gray-800"
-          color="gray"
-          pill
-        >
-          {theme === "light" ? <FaMoon /> : <CiLight />}
-        </Button>
-        <div>
-          <span className="hidden md:block ">
-            <MainNav />
-          </span>
-          <span className="md:hidden">
-            <MobileNav />
-          </span>
+        <div className="flex justify-between items-center space-x-4">
+          <Button
+            onClick={toggleTheme}
+            className="flex items-center w-5 h-5 rounded-full focus:ring-0   p-2  bg-gray-200 dark:bg-gray-800"
+            color="gray"
+            pill
+          >
+            {theme === "light" ? <FaMoon /> : <CiLight />}
+          </Button>
+          <div>
+            <span className="hidden md:block ">
+              <MainNav />
+            </span>
+            <span className="flex items-center md:hidden ">
+              <MobileNav />
+            </span>
+          </div>
         </div>
       </div>
+      <span className="md:text-3xl font-semibold text-slate-400 italic">
+        Finding a home away from home
+      </span>
     </header>
   );
 };

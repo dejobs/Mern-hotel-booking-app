@@ -19,7 +19,7 @@ const MainNav = () => {
   );
 
   return (
-    <div className="flex justify-between items-center font-bold space-x-4">
+    <div className="flex justify-between items-center font-semibold space-x-4">
       <Link
         className="text-base   text-white hover:text-slate-400"
         to={"/about"}
@@ -50,17 +50,19 @@ const MainNav = () => {
           <span className="">
             <img
               src={currentUser?.avatar}
-              className="object-center object-cover w-6 h-6 rounded-full"
+              className="object-center object-cover w-6 h-6 rounded-full hover:border-slate-400"
             />
           </span>
         </Link>
       )}
 
       {isLoggedIn ? (
-        <SignOutButton />
+        <span className="text-white font-semibold text-base">
+          <SignOutButton />
+        </span>
       ) : (
         <Link
-          className="text-lg text-white  hover:text-slate-400"
+          className="text-base font-semibold text-white  hover:text-slate-400"
           to={`/sign-in`}
         >
           Sign In
