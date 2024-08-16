@@ -21,7 +21,7 @@ const SignOutButton = () => {
 
   return (
     <span
-      className=" text-white font-semibold text-base  hover:text-blue-600 md:hover:text-slate-400 md:text-sm"
+      className="text-base text-white font-bold hover:text-orange-500 md:hover:text-slate-400"
       onClick={handleClick}
     >
       Sign Out
